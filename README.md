@@ -14,10 +14,14 @@ import HighlightText from 'react-native-highlight-underline-text';
 
 <HighlightText
   isFixed={false}
-  size={0}
+  underlineSize={0}
   bottom={4}
   ratio={0.3}
-  color='#ec2'
+  underlineColor='#ec2'
+  textStyle={{
+    color: '#333333',
+    fontSize: 30,
+  }}
 >
   Custom Highlight Underline Text
 </HighlightText>
