@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { Text, View } from 'react-native';
 
-const RNHighlightUnderlineText = ({ isFixed = false, size = 0, bottom = 0, ratio = 1, color = '#ec2', children }) => {
+const RNHighlightUnderlineText = memo(({ isFixed = false, underlineSize = 0, bottom = 0, ratio = 1, underlineColor = '#ec2', textStyle = {}, children }) => {
   const [layout, setLayout] = useState({ width: 0, height: 0 });
 
-  const onLayout = e => {
+  const onLayout = useCallback(e => {
     const { width, height } = e.nativeEvent.layout;
     setLayout({ width, height });
-  };
+  }, [setLayout]);
+
+  const convertTextStyle = useCallback(style => {
+    delete style.backgroundColor;
+    return style;
+  }, []);
 
   return (
     <View>
       <View style={{
-        backgroundColor: color,
+        backgroundColor: underlineColor,
         position: 'absolute',
         bottom: bottom,
         left: 0,
         width: layout.width,
-        height: isFixed ? size : (layout.height * ratio),
+        height: isFixed ? underlineSize : (layout.height * ratio),
       }} />
-      <Text onLayout={onLayout}>{children}</Text>
+      <Text onLayout={onLayout} style={convertTextStyle(textStyle)}>{children}</Text>
     </View>
   );
-};
+});
 
 export default RNHighlightUnderlineText;
