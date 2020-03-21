@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
 interface RNHighlightUnderlineText {
@@ -8,7 +7,7 @@ interface RNHighlightUnderlineText {
   ratio?: number,
   underlineColor?: string,
   textStyle?: StyleProp<ViewStyle>;
-  children: ReactNode,
+  text: String,
 }
 
 export default RNHighlightUnderlineText;
