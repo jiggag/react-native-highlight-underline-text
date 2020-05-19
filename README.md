@@ -1,6 +1,7 @@
 ## React Native Highlight Underline Text
+
 - 텍스트 밑줄 그려주는 컴포넌트
-- 1줄만 가능!
+- 여러줄 가능
 
 ## Installation
 ```
