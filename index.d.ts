@@ -1,4 +1,4 @@
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle } from 'react-native';
 
 interface RNHighlightUnderlineText {
   isFixed?: boolean,
@@ -6,7 +6,7 @@ interface RNHighlightUnderlineText {
   bottom?: number,
   ratio?: number,
   underlineColor?: string,
-  textStyle?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
   text: String,
 }
 

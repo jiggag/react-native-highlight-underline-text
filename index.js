@@ -1,18 +1,13 @@
 import React, { memo, useState, useCallback, useMemo } from 'react';
 import { Text, View } from 'react-native';
 
-const RNHighlightUnderlineText = memo(({ isFixed = false, underlineSize = 0, bottom = 0, ratio = 1, underlineColor = '#ec2', textStyle = {}, text }) => {
+const RNHighlightUnderlineText = memo(({ isFixed = false, underlineSize = 0, bottom = 0, ratio = 1, underlineColor = '#ec2', textStyle, text }) => {
   const [layoutHeight, setLayoutHeight] = useState(0);
 
   const onLayout = useCallback(e => {
-    const { height } = e.nativeEvent.layout.height;
+    const { height } = e.nativeEvent.layout;
     setLayoutHeight(height);
   }, []);
-
-  const convertTextStyle = useMemo(() => {
-    delete textStyle.backgroundColor;
-    return textStyle;
-  }, [textStyle]);
 
   const lineStyle = useMemo(() => {
     return {
@@ -31,7 +26,7 @@ const RNHighlightUnderlineText = memo(({ isFixed = false, underlineSize = 0, bot
         return (
           <View key={i}>
             <View style={lineStyle} />
-            <Text numberOfLines={1} onLayout={onLayout} style={convertTextStyle}>{v}</Text>
+            <Text numberOfLines={1} onLayout={onLayout} style={textStyle}>{v}</Text>
           </View>
         )
       })}

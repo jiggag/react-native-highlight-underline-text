@@ -1,6 +1,6 @@
 {
   "name": "react-native-highlight-underline-text",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "keywords": [
     "react-native",
     "react",
-    "hightlight",
+    "highlight",
     "underline",
     "text"
   ],
